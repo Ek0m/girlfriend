@@ -1,0 +1,143 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--linen);
+  overflow: hidden;
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  max-width: 90vw;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--nude-deep);
+  font-weight: 500;
+  margin: 0;
+}
+
+.hero__name {
+  font-size: var(--text-xxl);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1;
+}
+
+.hero__name-word {
+  display: inline-block;
+}
+
+.hero__name-word:not(:last-child) {
+  margin-right: 0.28ch;
+}
+
+.hero__date {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--nude-deep);
+  font-weight: 500;
+  margin: 0;
+}
+
+.hero__flowers {
+  position: absolute;
+  bottom: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__flowers--left {
+  left: clamp(-24px, 1vw, 30px);
+}
+
+.hero__flowers--right {
+  right: clamp(-30px, 0vw, 10px);
+}
+
+.hero__flower-head {
+  margin-bottom: -36px;
+}
+
+.hero__stem {
+  width: clamp(44px, 8vw, 70px);
+  height: auto;
+}
+
+.hero__stem--flip {
+  transform: scaleX(-1);
+}
+
+.hero__stem-line {
+  fill: none;
+  stroke: var(--stem);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.hero__stem-leaf {
+  fill: none;
+  stroke: var(--stem);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.hero__scroll-cue-line {
+  display: block;
+  width: 1px;
+  height: 34px;
+  background: var(--nude-deep);
+  opacity: 0.6;
+  animation: hero-cue 2.2s ease-in-out infinite;
+}
+
+@keyframes hero-cue {
+  0%,
+  100% {
+    transform: scaleY(0.6);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__flowers--left {
+    left: -12px;
+  }
+  .hero__flowers--right {
+    right: -20px;
+  }
+  .hero__stem {
+    width: 38px;
+  }
+}

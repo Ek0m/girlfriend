@@ -1,0 +1,29 @@
+.sunflower {
+  overflow: visible;
+}
+
+.sunflower__petal {
+  fill: var(--sunflower);
+}
+
+.sunflower__center {
+  fill: var(--sunflower);
+}
+
+.sunflower__ring {
+  fill: none;
+  stroke: var(--sunflower);
+  stroke-width: 2;
+  opacity: 0;
+  transform-origin: 60px 60px;
+  pointer-events: none;
+}
+
+.sunflower__seed {
+  fill: var(--stem);
+  opacity: 0.55;
+}
+
+.sunflower--decorative {
+  pointer-events: none;
+}

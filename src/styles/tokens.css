@@ -1,0 +1,41 @@
+:root {
+  /* Palette */
+  --petal: #e39ba6;
+  --blush: #fbeae9;
+  --nude: #debfa6;
+  --nude-deep: #b98f72;
+  --linen: #fffcf8;
+  --sunflower: #f0b429;
+  --stem: #55663f;
+  --ink: #3e2b2b;
+
+  /* Type families */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Karla', sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* Type scale */
+  --text-xs: 0.8rem;
+  --text-sm: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.9rem;
+  --text-xl: clamp(2.25rem, 1.7rem + 2.5vw, 3rem);
+  --text-xxl: clamp(2.75rem, 1.7rem + 5vw, 4.6rem);
+
+  /* Spacing */
+  --space-2xs: 0.4rem;
+  --space-xs: 0.8rem;
+  --space-sm: 1.2rem;
+  --space-md: 2rem;
+  --space-lg: 3.5rem;
+  --space-xl: 6rem;
+  --space-2xl: 9rem;
+
+  /* Shared */
+  --measure: 66ch;
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --shadow-soft: 0 20px 45px -20px rgba(62, 43, 43, 0.28);
+  --shadow-long: 0 30px 60px -25px rgba(62, 43, 43, 0.35);
+  --ease-bloom: cubic-bezier(0.22, 1, 0.36, 1);
+}

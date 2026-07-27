@@ -1,0 +1,40 @@
+.signoff {
+  background: var(--linen);
+  padding: var(--space-2xl) var(--space-md) var(--space-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.signoff__line {
+  font-size: var(--text-md);
+  max-width: 40ch;
+  color: var(--ink);
+}
+
+.signoff__name {
+  font-family: var(--font-hand);
+  font-size: var(--text-lg);
+  color: var(--ink);
+  margin: 0;
+}
+
+.signoff__flower {
+  margin-top: var(--space-sm);
+}
+
+.signoff__reset {
+  all: unset;
+  margin-top: var(--space-lg);
+  color: var(--nude);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: var(--space-2xs);
+}
+
+.signoff__reset:hover {
+  color: var(--nude-deep);
+}
