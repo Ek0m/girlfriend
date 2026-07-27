@@ -19,10 +19,11 @@ export default function Gifts({ isUnlocked, unlock }: GiftsProps) {
       return;
     }
 
-    gsap.set(targets, { opacity: 0, y: 20 });
+    gsap.set(targets, { opacity: 0, y: 20, scale: 0.96 });
     gsap.to(targets, {
       opacity: 1,
       y: 0,
+      scale: 1,
       duration: 0.6,
       ease: 'sunflowerBloom',
       stagger: 0.1,

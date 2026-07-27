@@ -11,10 +11,11 @@ export default function Gallery() {
       return;
     }
 
-    gsap.set(items, { opacity: 0, y: 20 });
+    gsap.set(items, { opacity: 0, y: 20, scale: 0.94 });
     gsap.to(items, {
       opacity: 1,
       y: 0,
+      scale: 1,
       duration: 0.7,
       ease: 'sunflowerBloom',
       stagger: 0.15,

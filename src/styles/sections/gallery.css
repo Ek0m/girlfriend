@@ -15,20 +15,18 @@
   flex-wrap: wrap;
 }
 
+/*
+ * Rotation lives on .gallery__image via the standalone `rotate` property
+ * (not the `transform` shorthand) so GSAP is free to animate .gallery__item's
+ * `transform` (opacity/y/scale reveal) without the two fighting over the
+ * same inline style.
+ */
 .gallery__item {
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-2xs);
-  transform: rotate(var(--rotation));
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.gallery__item:hover {
-  transform: rotate(0deg) translateY(-8px);
 }
 
 .gallery__item--0 {
@@ -58,9 +56,16 @@
   border: 8px solid var(--linen);
   box-shadow: var(--shadow-soft);
   background: var(--blush);
+  rotate: var(--rotation);
+  transition:
+    rotate 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .gallery__item:hover .gallery__image {
+  rotate: 0deg;
+  transform: translateY(-8px);
   box-shadow: var(--shadow-long);
 }
 
@@ -86,11 +91,11 @@
     margin: 0;
   }
 
-  .gallery__item {
-    transform: rotate(calc(var(--rotation) * 0.6));
+  .gallery__image {
+    rotate: calc(var(--rotation) * 0.6);
   }
 
-  .gallery__item:hover {
-    transform: rotate(0deg) translateY(-4px);
+  .gallery__item:hover .gallery__image {
+    transform: translateY(-4px);
   }
 }
