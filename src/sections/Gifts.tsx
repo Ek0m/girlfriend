@@ -36,7 +36,7 @@ export default function Gifts({ isUnlocked, unlock }: GiftsProps) {
 
   return (
     <section ref={rootRef} className="gifts" aria-label="Gifts">
-      <h2 className="gifts__heading">A Few Small Things, Just for You</h2>
+      <h2 className="gifts__heading">A Few Tokens of My Appreciation</h2>
       <div className="gifts__grid">
         {content.gifts.map((gift) => (
           <GiftCard key={gift.id} gift={gift} unlocked={isUnlocked(gift.id)} onUnlock={unlock} />

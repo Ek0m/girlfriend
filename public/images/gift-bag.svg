@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" role="img" aria-label="A small handbag with a round clasp">
+  <rect width="480" height="480" fill="#FBEAE9"/>
+
+  <g fill="none" stroke="#B98F72" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- shoulder strap, drawn as one slightly uneven arc -->
+    <path d="M150,214 C146,146 176,102 240,100 C305,98 336,143 331,214"/>
+
+    <!-- body: wider at the base, corners softened by hand -->
+    <path d="M112,206 C112,198 119,192 128,192 L352,192 C361,192 368,198 368,206 L378,352 C380,376 362,394 337,394 L143,394 C118,394 100,376 102,352 Z" fill="#E39BA6"/>
+
+    <!-- the flap -->
+    <path d="M104,254 L376,254 L372,196 C372,190 366,186 359,186 L121,186 C114,186 108,190 108,196 Z" fill="#DEBFA6" stroke-opacity="0.9"/>
+    <path d="M104,254 C160,270 320,270 376,254" stroke-opacity="0.55"/>
+  </g>
+
+  <!-- clasp: the one saturated accent -->
+  <circle cx="240" cy="278" r="21" fill="#F0B429" stroke="#B98F72" stroke-width="7"/>
+  <circle cx="240" cy="278" r="6" fill="#B98F72"/>
+</svg>

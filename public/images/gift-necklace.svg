@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" role="img" aria-label="A fine necklace with a sunflower pendant">
+  <rect width="480" height="480" fill="#FBEAE9"/>
+
+  <!-- the chain: two strands, the inner one drawn a touch off-centre so the
+       pair reads hand-drawn rather than mirrored -->
+  <g fill="none" stroke="#B98F72" stroke-linecap="round">
+    <path d="M116,112 C112,214 166,286 241,288 C314,290 369,216 364,112" stroke-width="7"/>
+    <path d="M148,116 C145,196 189,252 241,254 C292,256 335,199 333,116" stroke-width="5" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- clasp rings at the ends -->
+  <circle cx="116" cy="108" r="10" fill="none" stroke="#B98F72" stroke-width="6"/>
+  <circle cx="364" cy="108" r="10" fill="none" stroke="#B98F72" stroke-width="6"/>
+
+  <!-- bail -->
+  <path d="M241,288 L241,308" fill="none" stroke="#B98F72" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="241" cy="316" r="11" fill="none" stroke="#B98F72" stroke-width="6"/>
+
+  <!-- sunflower pendant: the one saturated note -->
+  <g transform="translate(241 388)">
+    <g fill="#F0B429" stroke="#B98F72" stroke-width="4" stroke-linejoin="round">
+      <ellipse cx="0" cy="-42" rx="15" ry="25"/>
+      <ellipse cx="0" cy="42" rx="15" ry="25"/>
+      <ellipse cx="-42" cy="0" rx="25" ry="15"/>
+      <ellipse cx="42" cy="0" rx="25" ry="15"/>
+      <ellipse cx="-30" cy="-30" rx="15" ry="25" transform="rotate(45 -30 -30)"/>
+      <ellipse cx="30" cy="30" rx="15" ry="25" transform="rotate(45 30 30)"/>
+      <ellipse cx="30" cy="-30" rx="15" ry="25" transform="rotate(-45 30 -30)"/>
+      <ellipse cx="-30" cy="30" rx="15" ry="25" transform="rotate(-45 -30 30)"/>
+    </g>
+    <circle cx="0" cy="0" r="21" fill="#E39BA6" stroke="#B98F72" stroke-width="5"/>
+    <circle cx="-6" cy="-4" r="3" fill="#B98F72"/>
+    <circle cx="6" cy="-2" r="3" fill="#B98F72"/>
+    <circle cx="0" cy="6" r="3" fill="#B98F72"/>
+  </g>
+</svg>

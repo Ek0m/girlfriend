@@ -1,8 +1,10 @@
 // All editable content for the site lives in this one file.
 // Swap the text and image paths below — nothing else needs to change.
 
-export interface Photo {
+export interface MediaItem {
   id: string;
+  /** 'photo' renders an <img>, 'video' renders a muted looping <video>. */
+  kind: 'photo' | 'video';
   src: string;
   caption: string;
   rotation: number;
@@ -32,101 +34,98 @@ export interface ContentData {
   date: string;
   eyebrow: string;
   letter: LetterContent;
-  photos: Photo[];
+  media: MediaItem[];
   gifts: Gift[];
   signOff: { line: string };
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// FILL THESE IN — the only three things left. Everything else is real.
+const HER_NAME = 'Angelic Sunshine'; // ← her name. This is the page's one <h1>.
+const MY_NAME = 'Angela'; //         ← your name. Signs the letter + sign-off.
+const PET_NAME = 'Sweets'; //          ← what you call her, used in the greeting.
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const content: ContentData = {
-  // PLACEHOLDER: her real name — this is the page's one <h1>.
-  her: 'Someone Wonderful',
+  her: HER_NAME,
+  me: MY_NAME,
+  petName: PET_NAME,
 
-  // PLACEHOLDER: your name — used for the letter and sign-off signatures.
-  me: 'Your Person',
-
-  // PLACEHOLDER: a nickname/pet name, optional — used in the letter's greeting.
-  petName: 'Sunflower',
-
-  // PLACEHOLDER: the date shown on the site, e.g. "August 1, 2026".
-  date: 'August 1',
+  date: 'August 1, 2026',
 
   eyebrow: 'Happy Girlfriends Day',
 
-  // PLACEHOLDER: replace with the real letter. Keep it as short paragraphs —
-  // each entry in `paragraphs` becomes its own <p>.
+  // Each entry in `paragraphs` becomes its own <p> on the letter card.
   letter: {
-    greeting: 'My dearest Sunflower,',
+    greeting: `My dearest ${PET_NAME},`,
     paragraphs: [
-      'This is a placeholder for the real letter — but even as filler, it means what it says: you make ordinary days feel like something worth writing down.',
-      "Whatever's actually true about the two of you goes here. The way you laugh, the thing you always say, the reason today is about you specifically and no one else.",
-      "Replace this paragraph, keep the shape. Three short beats is plenty — this isn't the place for an essay.",
+      "It's so wonderful, how amazing life can be.",
+      "From the day I met you till today, you've been a lover, a friend, my best friend, and my partner.",
+      "I am grateful for your patient moments and for the harsh talks too. Sometimes they weren't needed, but I learn a lot of lessons from them.",
+      "You showed and taught me things I didn't get to learn or experience growing up. Sometimes your ways can be confusing, but your patience and understanding helped me.",
+      'I love you so much, and I want to wish you a Happy Girlfriends Day for being the best girlfriend ever. Enjoy this day, and a few tokens of my appreciation.',
     ],
-    signoff: 'Always, Your Person',
+    signoff: `All my love, ${MY_NAME}`,
   },
 
-  // PLACEHOLDER: swap the src for real photos (any image format works),
-  // and rewrite the captions. Keep three entries for the asymmetric layout.
-  photos: [
+  // The middle entry lands in the raised centre slot of the asymmetric layout,
+  // so keep the video (or the shortest item) second.
+  media: [
     {
-      id: 'photo-01',
-      src: '/images/us-01.svg',
-      caption: 'the day we got caught in the rain',
+      id: 'media-01',
+      kind: 'photo',
+      src: '/images/us-01.jpg',
+      caption: 'us',
       rotation: -3,
-      width: 1200,
-      height: 1500,
+      width: 1242,
+      height: 2208,
     },
     {
-      id: 'photo-02',
-      src: '/images/us-02.svg',
-      caption: 'us, mid-laugh',
+      id: 'media-02',
+      kind: 'video',
+      src: '/images/us-video.mp4',
+      caption: 'this one, always',
       rotation: 2,
-      width: 1200,
-      height: 900,
+      width: 720,
+      height: 1280,
     },
     {
-      id: 'photo-03',
-      src: '/images/us-03.svg',
-      caption: 'somewhere we never wanted to leave',
+      id: 'media-03',
+      kind: 'photo',
+      src: '/images/us-02.jpg',
+      caption: 'my favourite face',
       rotation: -1.5,
-      width: 1200,
-      height: 1500,
+      width: 1242,
+      height: 2208,
     },
   ],
 
-  // PLACEHOLDER: replace name/description with the real gifts. Add or remove
-  // entries freely — the gifts section lays itself out from this array.
+  // Add or remove entries freely — the gifts section lays itself out from this
+  // array. `hint` shows while locked; the rest appears once she unlocks it.
   gifts: [
     {
-      id: 'gift-01',
+      id: 'gift-slippers',
+      hint: 'something for an outing or an outfit',
+      name: 'An Outfit Slippers',
+      description: 'Soft, and yours.',
+      image: '/images/gift-slippers.svg',
+      imageAlt: 'A pair of soft house slippers',
+    },
+    {
+      id: 'gift-bag',
+      hint: 'something to carry',
+      name: 'A Bag, Just Your Style',
+      description: 'Small, cute, and made to be shown off.',
+      image: '/images/gift-bag.svg',
+      imageAlt: 'A small handbag with a round clasp',
+    },
+    {
+      id: 'gift-necklace',
       hint: 'something you wear',
-      name: 'A Little Piece of Us',
-      description: 'Swap in the real thing — a necklace, a bracelet, whatever feels like her.',
-      image: '/images/gift-01.svg',
-      imageAlt: 'A little piece of us',
-    },
-    {
-      id: 'gift-02',
-      hint: 'something you taste',
-      name: 'Your Favorite Bite',
-      description: 'Whatever treat, dessert, or dinner plan goes here.',
-      image: '/images/gift-02.svg',
-      imageAlt: 'Your favorite bite',
-    },
-    {
-      id: 'gift-03',
-      hint: 'something to keep',
-      name: 'A Little Keepsake',
-      description: 'A journal, a frame, a trinket — something small that lasts.',
-      image: '/images/gift-03.svg',
-      imageAlt: 'A little keepsake',
-    },
-    {
-      id: 'gift-04',
-      hint: 'something to look forward to',
-      name: 'A Day, Just Ours',
-      description: 'A planned date, trip, or experience — fill in the actual plan.',
-      image: '/images/gift-04.svg',
-      imageAlt: 'A day, just ours',
+      name: 'Lovely Necklaces',
+      description: 'So little pieces of me goes wherever you go.',
+      image: '/images/gift-necklace.svg',
+      imageAlt: 'A fine necklace with a sunflower pendant',
     },
   ],
 

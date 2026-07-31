@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" role="img" aria-label="A pair of soft house slippers">
+  <rect width="480" height="480" fill="#FBEAE9"/>
+
+  <g fill="none" stroke="#B98F72" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- back slipper, tucked behind and turned slightly away -->
+    <g transform="translate(252 128) rotate(9)">
+      <path d="M6,14 C64,6 128,16 150,52 C168,82 156,120 122,132 C86,145 30,140 8,116 C-10,96 -12,44 6,14 Z" fill="#E39BA6"/>
+      <path d="M9,26 C58,18 116,28 136,56 C150,76 142,104 116,113" stroke-opacity="0.65"/>
+      <!-- the soft band across the toe -->
+      <path d="M4,60 C42,44 92,44 128,62 C133,79 130,95 118,105 C82,88 40,86 6,98 C0,84 0,70 4,60 Z" fill="#FFFCF8"/>
+    </g>
+
+    <!-- front slipper -->
+    <g transform="translate(72 214) rotate(-6)">
+      <path d="M8,22 C72,10 148,22 176,62 C198,94 184,140 144,155 C102,171 34,164 10,136 C-12,110 -12,58 8,22 Z" fill="#E39BA6"/>
+      <path d="M12,36 C68,25 138,36 162,68 C178,90 170,124 138,134" stroke-opacity="0.65"/>
+      <path d="M6,74 C48,54 108,54 150,76 C156,96 152,116 138,127 C96,106 46,104 8,118 C1,101 1,86 6,74 Z" fill="#FFFCF8"/>
+    </g>
+  </g>
+
+  <!-- one stitched sunflower on the front slipper: the single saturated note -->
+  <g transform="translate(158 274)">
+    <g fill="#F0B429">
+      <ellipse cx="0" cy="-25" rx="9" ry="15"/>
+      <ellipse cx="0" cy="25" rx="9" ry="15"/>
+      <ellipse cx="-25" cy="0" rx="15" ry="9"/>
+      <ellipse cx="25" cy="0" rx="15" ry="9"/>
+      <ellipse cx="-18" cy="-18" rx="9" ry="15" transform="rotate(45 -18 -18)"/>
+      <ellipse cx="18" cy="18" rx="9" ry="15" transform="rotate(45 18 18)"/>
+      <ellipse cx="18" cy="-18" rx="9" ry="15" transform="rotate(-45 18 -18)"/>
+      <ellipse cx="-18" cy="18" rx="9" ry="15" transform="rotate(-45 -18 18)"/>
+    </g>
+    <circle cx="0" cy="0" r="12" fill="#B98F72"/>
+  </g>
+</svg>

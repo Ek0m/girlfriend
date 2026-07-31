@@ -1,8 +1,8 @@
 # Happy Girlfriends Day
 
 A one-page gift site: a hero with her name, a letter that opens like an
-envelope, three photos, four locked gifts she unlocks one by one, and a
-short sign-off. Built with Vite, React, TypeScript, and GSAP.
+envelope, two photos and a short video, three locked gifts she unlocks one
+by one, and a short sign-off. Built with Vite, React, TypeScript, and GSAP.
 
 ## Running it locally
 
@@ -17,20 +17,27 @@ folder; `npm run preview` serves that build locally.
 ## Editing the content
 
 Everything you'll want to personalize lives in **one file**:
-[`src/data/content.ts`](src/data/content.ts). Every field has a
-`// PLACEHOLDER:` comment explaining what belongs there. You can edit:
+[`src/data/content.ts`](src/data/content.ts).
 
-- `her`, `me`, `petName`, `date`, `eyebrow` — the names and date shown in
-  the hero and letter.
-- `letter` — the greeting, an array of paragraphs (one per line/paragraph),
-  and the sign-off.
-- `photos` — three entries with `src`, `caption`, `rotation`, and
-  dimensions. See [`public/images/README.md`](public/images/README.md) for
-  how to swap in real photos.
+**Start at the top.** Three constants — `HER_NAME`, `MY_NAME`, `PET_NAME` —
+sit in a marked block near the top of the file and feed the hero heading, the
+letter's greeting, and both sign-offs. Fill those in first; everything else
+below them is already written.
+
+You can also edit:
+
+- `date`, `eyebrow` — the small lines above and below her name in the hero.
+- `letter` — the greeting, an array of paragraphs (one `<p>` each), and the
+  sign-off.
+- `media` — the two photos and the video, each with a `kind` (`'photo'` or
+  `'video'`), `src`, `caption`, `rotation`, and dimensions. The middle entry
+  gets the raised centre slot. See
+  [`public/images/README.md`](public/images/README.md) for how to swap them.
 - `gifts` — add, remove, or edit entries freely; the gifts section lays
   itself out from however many you list. Each has a `hint` (shown while
   locked), a `name` + `description` (shown once unlocked), and an optional
-  `image`.
+  `image`. If you go past three, widen the grid in
+  [`src/styles/sections/gifts.css`](src/styles/sections/gifts.css).
 - `signOff` — the closing line.
 
 No markup needs to change for any of the above.

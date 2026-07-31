@@ -7,6 +7,9 @@ const ENVELOPE_SRC = '/audio/envelope.wav';
 
 const AMBIENT_TARGET_VOLUME = 0.35;
 const AMBIENT_FADE_SECONDS = 1.2;
+// Where the ambient sits while the gallery video is unmuted — quiet enough to
+// stay out of the way, not so quiet it feels like it cut out.
+const AMBIENT_DUCKED_VOLUME = 0.06;
 
 function createAudio(src: string): HTMLAudioElement {
   const el = new Audio(src);
@@ -30,6 +33,11 @@ envelopeRustle.volume = 0.35;
 let audioEnabled = false;
 let ambientPlaying = false;
 let hasFadedInOnce = false;
+let ambientDucked = false;
+
+function ambientTargetVolume(): number {
+  return ambientDucked ? AMBIENT_DUCKED_VOLUME : AMBIENT_TARGET_VOLUME;
+}
 
 function safePlay(el: HTMLAudioElement) {
   try {
@@ -56,19 +64,36 @@ export function toggleAmbientMusic(): boolean {
       .play()
       .then(() => {
         gsap.to(ambient, {
-          volume: AMBIENT_TARGET_VOLUME,
+          volume: ambientTargetVolume(),
           duration: AMBIENT_FADE_SECONDS,
           ease: 'power1.out',
         });
       })
       .catch(() => {});
   } else {
-    ambient.volume = AMBIENT_TARGET_VOLUME;
+    ambient.volume = ambientTargetVolume();
     ambient.play().catch(() => {});
   }
 
   ambientPlaying = true;
   return true;
+}
+
+/**
+ * Drops the ambient music down under the gallery video's own audio, and back
+ * up when the video is re-muted. Ducking rather than pausing keeps
+ * MusicToggle's `playing` state — and so its sunflower icon — accurate.
+ */
+export function duckAmbient(ducked: boolean) {
+  if (ducked === ambientDucked) return;
+  ambientDucked = ducked;
+
+  if (!ambientPlaying) return;
+  gsap.to(ambient, {
+    volume: ambientTargetVolume(),
+    duration: 0.4,
+    ease: 'power1.out',
+  });
 }
 
 export function playUnlockChime() {

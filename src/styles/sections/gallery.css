@@ -16,10 +16,10 @@
 }
 
 /*
- * Rotation lives on .gallery__image via the standalone `rotate` property
- * (not the `transform` shorthand) so GSAP is free to animate .gallery__item's
- * `transform` (opacity/y/scale reveal) without the two fighting over the
- * same inline style.
+ * Rotation lives on .gallery__media (and on .gallery__video-wrap for the video)
+ * via the standalone `rotate` property — not the `transform` shorthand — so
+ * GSAP is free to animate .gallery__item's `transform` (the opacity/y/scale
+ * reveal) without the two fighting over the same inline style.
  */
 .gallery__item {
   margin: 0;
@@ -29,27 +29,32 @@
   gap: var(--space-2xs);
 }
 
+/*
+ * All three are tall phone portraits, so the "laid on a table" asymmetry comes
+ * from the widths and the raised middle rather than from mixed aspect ratios.
+ * Nothing is cropped — the whole frame of each photo shows.
+ */
 .gallery__item--0 {
-  flex: 1 1 320px;
-  max-width: 340px;
+  flex: 1 1 300px;
+  max-width: 320px;
   align-self: flex-end;
 }
 
 .gallery__item--1 {
   flex: 1 1 240px;
-  max-width: 280px;
+  max-width: 260px;
   align-self: flex-start;
   margin: 0 -1.5rem;
   z-index: 2;
 }
 
 .gallery__item--2 {
-  flex: 1 1 320px;
-  max-width: 340px;
+  flex: 1 1 300px;
+  max-width: 320px;
   align-self: flex-end;
 }
 
-.gallery__image {
+.gallery__media {
   width: 100%;
   height: auto;
   display: block;
@@ -63,17 +68,67 @@
     box-shadow 0.35s ease;
 }
 
-.gallery__item:hover .gallery__image {
+/* The video's rotation sits on the wrapper instead, so the sound button turns
+   with the frame rather than floating loose beside it. */
+.gallery__video-wrap {
+  position: relative;
+  width: 100%;
+  rotate: var(--rotation);
+  transition:
+    rotate 0.35s ease,
+    transform 0.35s ease;
+}
+
+.gallery__video-wrap .gallery__media {
+  rotate: none;
+}
+
+.gallery__item:hover > .gallery__media,
+.gallery__item:hover > .gallery__video-wrap {
   rotate: 0deg;
   transform: translateY(-8px);
+}
+
+.gallery__item:hover .gallery__media {
   box-shadow: var(--shadow-long);
 }
 
-.gallery__caption {
-  font-family: var(--font-hand);
-  font-size: var(--text-md);
+.gallery__sound {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--nude);
+  border-radius: 50%;
+  background: var(--linen);
   color: var(--nude-deep);
-  text-align: center;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  opacity: 0.9;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.gallery__sound:hover {
+  background: var(--nude-deep);
+  color: var(--linen);
+  opacity: 1;
+}
+
+.gallery__sound svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 @media (max-width: 768px) {
@@ -91,11 +146,17 @@
     margin: 0;
   }
 
-  .gallery__image {
+  .gallery__media,
+  .gallery__video-wrap {
     rotate: calc(var(--rotation) * 0.6);
   }
 
-  .gallery__item:hover .gallery__image {
+  .gallery__video-wrap .gallery__media {
+    rotate: none;
+  }
+
+  .gallery__item:hover > .gallery__media,
+  .gallery__item:hover > .gallery__video-wrap {
     transform: translateY(-4px);
   }
 }
